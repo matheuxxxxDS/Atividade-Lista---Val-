@@ -1,24 +1,24 @@
 import { useState } from "react";
 import { View } from "react-native";
 import { Card, Text } from "react-native-paper";
-import Produtos from "../data/Produtos";
+import Pessoas from "../data/Pessoas";
 
-const getProdutoPorId = (id) => {
-    return Produtos.find(p => p.id == id)
+const getPessoaPorId = (id) => {
+    return Pessoas.find(p => p.id == id)
 }
 
 export default ({ route, navigation }) => {
-    const [produto, setProduto] = useState(getProdutoPorId(route.params.id))
+    const [pessoa, setPessoa] = useState(getPessoaPorId(route.params.id))
 
     return (
         <View>
             <Card>
                 <Card.Cover source={{
-                    uri: produto.urlImagem
+                    uri: pessoa.urlImagem
                 }} />
-                <Card.Title title={produto.titulo} />
+                <Card.Title title={pessoa.name} />
                 <Card.Content>
-                    <Text variant="bodyMedium">{produto.descricao}</Text>
+                    <Text variant="bodyMedium">{pessoa.email}</Text>
                 </Card.Content>
             </Card>
         </View>
